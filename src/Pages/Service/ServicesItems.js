@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ServicesItems = ({ s }) => {
-    const { title, img, description, price } = s;
+    const { title, img, description, price, _id } = s;
     return (
 
         <div>
@@ -16,7 +16,9 @@ const ServicesItems = ({ s }) => {
                     <p>{description.slice(0, 150)}</p>
                     <div className="card-actions justify-between">
                         <div className="btn btn-outline btn-warning">Price: ${price}</div>
-                        <div className="btn btn-primary">Learn more!</div>
+                        <Link to={`/review/${_id}`}>
+                            <div className="btn btn-primary">Learn more!</div>
+                        </Link>
                     </div>
                 </div>
             </div>
