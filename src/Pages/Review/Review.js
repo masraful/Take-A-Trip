@@ -28,7 +28,7 @@ const Review = () => {
 
     }
     useEffect(() => {
-        fetch(`http://localhost:5000/review`)
+        fetch(`https://treval-server-l7liumtab-masraful.vercel.app/review`)
             .then(res => res.json())
             .then(data => setReview(data))
     }, [review])

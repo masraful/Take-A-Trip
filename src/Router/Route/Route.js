@@ -34,7 +34,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/blogs',
-                element: <PrivateRout><Blogs></Blogs></PrivateRout>
+                element: <Blogs></Blogs>
             },
             {
                 path: '/newservice',
@@ -54,7 +54,7 @@ const router = createBrowserRouter([
             {
                 path: '/allservice/:id',
                 loader: ({ params }) => fetch(`https://treval-server-l7liumtab-masraful.vercel.app/items/${params.id}`),
-                element: <MoreItems></MoreItems>
+                element: <PrivateRout><MoreItems></MoreItems></PrivateRout>
             }
 
         ]
