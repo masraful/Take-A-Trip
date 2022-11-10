@@ -14,7 +14,7 @@ const MoreItems = () => {
         const review = form.review.value;
         form.reset()
         console.log(review)
-        fetch('https://treval-server-l7liumtab-masraful.vercel.app/allreview', {
+        fetch('http://localhost:5000/allreview', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,7 +28,7 @@ const MoreItems = () => {
 
     }
     useEffect(() => {
-        fetch(`http://localhost:5000/allreview`)
+        fetch(`https://treval-server-l7liumtab-masraful.vercel.app/allreview`)
             .then(res => res.json())
             .then(data => setReview(data))
     }, [review])
