@@ -3,12 +3,14 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FcGoogle } from "react-icons/fc";
 import img from '../../assets/Login/undraw_click_here_re_y6uq.svg';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/UseTitele';
 const Login = () => {
     const { login, googleSignIn } = useContext(AuthContext)
     const location = useLocation();
     const navigate = useNavigate();
 
     const from = location.state?.from?.pathname || '/';
+    useTitle('Login')
 
     const handleLogin = event => {
         event.preventDefault();

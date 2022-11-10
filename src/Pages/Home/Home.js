@@ -6,6 +6,7 @@ import Items from '../Items/Items';
 import Services from '../Service/Services';
 
 const Home = () => {
+
     return (
         <div>
             <Banner></Banner>

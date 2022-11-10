@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import useTitle from '../../Hooks/UseTitele';
-import Allreview from './Allreview';
+import ReviewItems from './ReviewItems';
 
-const Review = () => {
+const MoreItems = () => {
     const [review, setReview] = useState([])
-    const data = useLoaderData()
+    const data = useLoaderData();
     const { img, title, price, description } = data;
     useTitle('Review')
     const handlReview = event => {
@@ -14,7 +14,7 @@ const Review = () => {
         const review = form.review.value;
         form.reset()
         console.log(review)
-        fetch('https://treval-server-l7liumtab-masraful.vercel.app/review', {
+        fetch('https://treval-server-l7liumtab-masraful.vercel.app/allreview', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -28,12 +28,10 @@ const Review = () => {
 
     }
     useEffect(() => {
-        fetch(`http://localhost:5000/review`)
+        fetch(`http://localhost:5000/allreview`)
             .then(res => res.json())
             .then(data => setReview(data))
     }, [review])
-
-    // console.log(review)
     return (
         <div>
             <h2 className='text-4xl font-bold text-center my-5'>Service Detalis</h2>
@@ -60,7 +58,7 @@ const Review = () => {
                     <div className='w-full'>
                         <h2 className='text-5xl font-bold text-center my-5'>All Review</h2>
                         {
-                            review.map(r => <Allreview key={r._id} r={r}></Allreview>)
+                            review.map(r => <ReviewItems key={r._id} r={r}></ReviewItems>)
                         }
                         <form onSubmit={handlReview} className="card-body">
                             <div className="form-control w-full">
@@ -83,4 +81,4 @@ const Review = () => {
     );
 };
 
-export default Review;
+export default MoreItems;

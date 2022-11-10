@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from 'react';
+import useTitle from '../../Hooks/UseTitele';
 import AllTrip from './AllTrip';
 
 
 const AllItems = () => {
+    useTitle('Service')
     const [service, setService] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/items`)
+        fetch(`https://treval-server-l7liumtab-masraful.vercel.app/items`)
             .then(res => res.json())
             .then(data => setService(data))
     }, [])

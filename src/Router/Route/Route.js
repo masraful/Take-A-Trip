@@ -7,6 +7,7 @@ import Login from "../../Pages/Login/Login";
 import PrivateRout from "../../Pages/Login/PrivateRout";
 import Register from "../../Pages/Register/Register";
 import Allreview from "../../Pages/Review/Allreview";
+import MoreItems from "../../Pages/Review/MoreItems";
 import Review from "../../Pages/Review/Review";
 import AllItems from "../../Pages/Service/AllItems";
 
@@ -39,15 +40,21 @@ const router = createBrowserRouter([
                 path: '/newservice',
                 element: <NewService></NewService>
             },
+            // {http://localhost:5000/services/${params.id},
             {
                 path: "/review/:id",
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`),
+                loader: ({ params }) => fetch(`https://treval-server-l7liumtab-masraful.vercel.app/services/${params.id}`),
                 element: <PrivateRout><Review></Review></PrivateRout>
 
             },
             {
                 path: '/costomer',
                 element: <Allreview></Allreview>
+            },
+            {
+                path: '/allservice/:id',
+                loader: ({ params }) => fetch(`https://treval-server-l7liumtab-masraful.vercel.app/items/${params.id}`),
+                element: <MoreItems></MoreItems>
             }
 
         ]

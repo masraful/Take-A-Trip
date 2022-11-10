@@ -4,7 +4,7 @@ import NewPost from './NewPost';
 const Post = () => {
     const [post, setPost] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/newservice`)
+        fetch(`https://treval-server-l7liumtab-masraful.vercel.app/newservice`)
             .then(res => res.json())
             .then(data => setPost(data))
     }, [])

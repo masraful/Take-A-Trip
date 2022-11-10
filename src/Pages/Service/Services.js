@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import useTitle from '../../Hooks/UseTitele';
 import ServicesItems from './ServicesItems';
 
 const Services = () => {
+    useTitle('Home')
 
     const [items, setItems] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/services`)
+        fetch(`https://treval-server-l7liumtab-masraful.vercel.app/services`)
             .then(res => res.json())
             .then(data => setItems(data))
     }, [])

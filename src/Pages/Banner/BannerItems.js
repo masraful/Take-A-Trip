@@ -19,8 +19,7 @@ const BannerItems = ({ slide }) => {
             </div>
 
             <div className="absolute flex justify-start transform -translate-y-1/2 w-2/5 left-24 top-3/4">
-                {/* <button className="btn btn-warning mr-5">Warning</button>
-                <button className="btn btn-outline btn-warning">Warning</button> */}
+
             </div>
             <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">
 
